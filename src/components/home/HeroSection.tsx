@@ -1,6 +1,6 @@
-import Image from 'next/image'
-import Container from '@/components/ui/Container'
-import Button from '@/components/ui/Button'
+import Image from "next/image";
+import Container from "@/components/ui/Container";
+import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
   return (
@@ -12,8 +12,10 @@ export default function HeroSection() {
             เสื้อยืดแบรนด์แท้ พร้อมส่ง
           </h1>
           <p className="mt-4 text-lg text-brand-text">
-            ร้านขายเสื้อแท้ที่เชื่อถือได้
-            ค้นพบแบรนด์โปรดของคุณที่ <strong className="font-semibold text-brand-primary">เสื้อแท้.com</strong>
+            ร้านขายเสื้อแท้ที่เชื่อถือได้ ค้นพบแบรนด์โปรดของคุณที่{" "}
+            <strong className="font-semibold text-brand-primary">
+              เสื้อแท้.com
+            </strong>
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row md:justify-start">
             <Button href="/shop" variant="primary">
@@ -38,5 +40,5 @@ export default function HeroSection() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

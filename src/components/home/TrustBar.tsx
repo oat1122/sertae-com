@@ -1,23 +1,23 @@
-import Container from '@/components/ui/Container'
-import { ShieldCheckIcon, TruckIcon, StarIcon } from '@/lib/icons'
+import Container from "@/components/ui/Container";
+import { ShieldCheckIcon, TruckIcon, StarIcon } from "@/lib/icons";
 
 const features = [
   {
-    name: 'รับประกันของแท้ 100%',
-    description: 'ไม่แท้ยินดีคืนเงินเต็มจำนวน',
+    name: "รับประกันของแท้ 100%",
+    description: "ไม่แท้ยินดีคืนเงินเต็มจำนวน",
     icon: ShieldCheckIcon,
   },
   {
-    name: 'จัดส่งไวใน 24 ชม.',
-    description: 'สินค้าพร้อมส่ง ไม่ต้องรอพรีออเดอร์',
+    name: "จัดส่งไวใน 24 ชม.",
+    description: "สินค้าพร้อมส่ง ไม่ต้องรอพรีออเดอร์",
     icon: TruckIcon,
   },
   {
-    name: 'รีวิวจากผู้ซื้อจริง 1,000+',
-    description: 'คะแนนเฉลี่ย 4.9/5 ดาว',
+    name: "รีวิวจากผู้ซื้อจริง 1,000+",
+    description: "คะแนนเฉลี่ย 4.9/5 ดาว",
     icon: StarIcon,
   },
-]
+];
 
 export default function TrustBar() {
   return (
@@ -25,10 +25,7 @@ export default function TrustBar() {
       <Container>
         <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
           {features.map((feature) => (
-            <div
-              key={feature.name}
-              className="flex flex-col items-center"
-            >
+            <div key={feature.name} className="flex flex-col items-center">
               <feature.icon className="h-10 w-10 text-brand-primary" />
               <h3 className="mt-4 text-lg font-semibold text-brand-text">
                 {feature.name}
@@ -41,5 +38,5 @@ export default function TrustBar() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

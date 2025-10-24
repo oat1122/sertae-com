@@ -3,12 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #333333;
-  
+
   /* Brand Colors */
-  --brand-lightest: #E3FDFD;
-  --brand-light: #CBF1F5;
-  --brand-mid: #A6E3E9;
-  --brand-primary: #71C9CE;
+  --brand-lightest: #e3fdfd;
+  --brand-light: #cbf1f5;
+  --brand-mid: #a6e3e9;
+  --brand-primary: #71c9ce;
   --brand-text: #333333;
 }
 
@@ -19,7 +19,7 @@
   --color-brand-mid: var(--brand-mid);
   --color-brand-primary: var(--brand-primary);
   --color-brand-text: var(--brand-text);
-  
+
   /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

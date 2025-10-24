@@ -1,24 +1,21 @@
-import Link from 'next/link'
-import Container from '@/components/ui/Container'
-import { SearchIcon, ShoppingBagIcon, UserIcon } from '@/lib/icons'
+import Link from "next/link";
+import Container from "@/components/ui/Container";
+import { SearchIcon, ShoppingBagIcon, UserIcon } from "@/lib/icons";
 
 // TODO: [Copilot] เพิ่มลิงก์ที่ถูกต้องสำหรับ navigation links
 const navLinks = [
-  { name: 'หน้าแรก', href: '/' },
-  { name: 'สินค้าทั้งหมด', href: '/shop' },
-  { name: 'เกี่ยวกับเรา', href: '/about' },
-  { name: 'ติดต่อ', href: '/contact' },
-]
+  { name: "หน้าแรก", href: "/" },
+  { name: "สินค้าทั้งหมด", href: "/shop" },
+  { name: "เกี่ยวกับเรา", href: "/about" },
+  { name: "ติดต่อ", href: "/contact" },
+];
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm">
       <Container className="flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-2xl font-bold text-brand-primary"
-        >
+        <Link href="/" className="text-2xl font-bold text-brand-primary">
           เสื้อแท้.com
         </Link>
 
@@ -60,5 +57,5 @@ export default function Header() {
         </div>
       </Container>
     </header>
-  )
+  );
 }

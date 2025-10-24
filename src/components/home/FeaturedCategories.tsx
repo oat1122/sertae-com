@@ -1,13 +1,25 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import Container from '@/components/ui/Container'
+import Image from "next/image";
+import Link from "next/link";
+import Container from "@/components/ui/Container";
 
 // TODO: [Copilot] ดึงข้อมูล Category 3 รายการจาก Prisma
 const categories = [
-  { name: 'Streetwear', href: '/category/streetwear', imageUrl: 'https://via.placeholder.com/400x300.png?text=Streetwear' },
-  { name: 'Sportswear', href: '/category/sportswear', imageUrl: 'https://via.placeholder.com/400x300.png?text=Sportswear' },
-  { name: 'Luxury', href: '/category/luxury', imageUrl: 'https://via.placeholder.com/400x300.png?text=Luxury' },
-]
+  {
+    name: "Streetwear",
+    href: "/category/streetwear",
+    imageUrl: "https://via.placeholder.com/400x300.png?text=Streetwear",
+  },
+  {
+    name: "Sportswear",
+    href: "/category/sportswear",
+    imageUrl: "https://via.placeholder.com/400x300.png?text=Sportswear",
+  },
+  {
+    name: "Luxury",
+    href: "/category/luxury",
+    imageUrl: "https://via.placeholder.com/400x300.png?text=Luxury",
+  },
+];
 
 export default function FeaturedCategories() {
   return (
@@ -40,5 +52,5 @@ export default function FeaturedCategories() {
         </div>
       </Container>
     </section>
-  )
+  );
 }

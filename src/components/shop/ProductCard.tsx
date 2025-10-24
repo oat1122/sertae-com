@@ -1,18 +1,18 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
 
 // TODO: [Copilot] สร้าง Type นี้จาก Prisma Schema ของคุณ (model Post หรือ Product)
 type Product = {
-  id: string
-  slug: string
-  name: string
-  brand: string
-  price: number
-  imageUrl: string
-}
+  id: string;
+  slug: string;
+  name: string;
+  brand: string;
+  price: number;
+  imageUrl: string;
+};
 
 interface ProductCardProps {
-  product: Product
+  product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
@@ -35,9 +35,9 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.name}
         </h3>
         <p className="mt-2 font-semibold text-brand-primary">
-          ฿{product.price.toLocaleString('th-TH')}
+          ฿{product.price.toLocaleString("th-TH")}
         </p>
       </div>
     </Link>
-  )
+  );
 }
