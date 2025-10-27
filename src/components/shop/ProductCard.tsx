@@ -8,6 +8,7 @@ type Product = {
   name: string;
   brand: string;
   price: number;
+  compareAtPrice?: number; // ราคาเปรียบเทียบ (ก่อนลดราคา)
   imageUrl: string;
 };
 
@@ -34,9 +35,16 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h3 className="mt-1 font-semibold text-brand-text group-hover:text-brand-primary">
           {product.name}
         </h3>
-        <p className="mt-2 font-semibold text-brand-primary">
-          ฿{product.price.toLocaleString("th-TH")}
-        </p>
+        <div className="mt-2 flex items-center gap-2">
+          <p className="font-semibold text-brand-primary">
+            ฿{product.price.toLocaleString("th-TH")}
+          </p>
+          {product.compareAtPrice && product.compareAtPrice > product.price && (
+            <p className="text-sm text-gray-400 line-through">
+              ฿{product.compareAtPrice.toLocaleString("th-TH")}
+            </p>
+          )}
+        </div>
       </div>
     </Link>
   );

@@ -1,27 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import { getFeaturedCategories } from "./hook/useFeaturedCategories";
 
-// TODO: [Copilot] ดึงข้อมูล Category 3 รายการจาก Prisma
-const categories = [
-  {
-    name: "Streetwear",
-    href: "/category/streetwear",
-    imageUrl: "https://via.placeholder.com/400x300.png?text=Streetwear",
-  },
-  {
-    name: "Sportswear",
-    href: "/category/sportswear",
-    imageUrl: "https://via.placeholder.com/400x300.png?text=Sportswear",
-  },
-  {
-    name: "Luxury",
-    href: "/category/luxury",
-    imageUrl: "https://via.placeholder.com/400x300.png?text=Luxury",
-  },
-];
+export default async function FeaturedCategories() {
+  const formattedCategories = await getFeaturedCategories();
 
-export default function FeaturedCategories() {
   return (
     <section className="bg-brand-light py-20">
       <Container>
@@ -29,7 +13,7 @@ export default function FeaturedCategories() {
           เลือกซื้อตามหมวดหมู่
         </h2>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category) => (
+          {formattedCategories.map((category) => (
             <Link
               key={category.name}
               href={category.href}
