@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 // TODO: [Copilot] ตรวจสอบและปรับปรุง Keywords และ Title ตามกลยุทธ์ SEO ล่าสุด
 export const metadata: Metadata = {
@@ -19,8 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "เสื้อแท้.com | เว็บขายเสื้อแบรนด์เนมแท้",
     description: "รับประกันของแท้ 100% สินค้าพร้อมส่ง จัดส่งไว",
-    // TODO: [Copilot] เพิ่ม URL ของรูปภาพสำหรับ Open Graph (og:image)
-    // images: ['/og-image.jpg'],
+    images: ["/og-image.jpg"],
     type: "website",
     locale: "th_TH",
   },

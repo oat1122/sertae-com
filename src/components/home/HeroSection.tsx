@@ -29,13 +29,13 @@ export default function HeroSection() {
 
         {/* Right: Image */}
         <div className="relative h-64 w-full md:h-96">
-          {/* TODO: [Copilot] เปลี่ยน src เป็นรูป Hero Image ที่คมชัด และอัปเดต alt text */}
           <Image
-            src="https://via.placeholder.com/600x400.png?text=Premium+T-Shirt"
-            alt="เสื้อยืดแบรนด์เนมแท้พรีเมียม"
+            src="/gif/hero/hero.gif"
+            alt="เสื้อยืดแบรนด์เนมแท้พรีเมียม - คอลเลกชันใหม่ล่าสุด"
             fill
             className="rounded-lg object-cover shadow-lg"
             priority
+            unoptimized
           />
         </div>
       </Container>

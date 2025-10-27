@@ -14,12 +14,10 @@ datasource db {
 // 1. ส่วนของ NextAuth.js (ตามมาตรฐาน)
 // ----------------------------------------------
 
-// Enum สำหรับ Role ที่คุณเคยระบุไว้ (ADMIN, SEO_DEV, CUSTOMER)
+// Enum สำหรับ Role (ปรับปรุงใหม่)
 enum Role {
-  USER
-  ADMIN
-  SEO_DEV
-  CUSTOMER
+  USER  // สำหรับผู้ใช้ทั่วไป หรือ ลูกค้า
+  ADMIN // สำหรับผู้ดูแลระบบ (ไว้เพิ่ม Blog)
 }
 
 model User {
@@ -28,7 +26,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  role          Role      @default(USER) // เพิ่ม Role เข้าไปใน User
+  role          Role      @default(USER) // ค่าเริ่มต้นคือ USER
   accounts      Account[]
   sessions      Session[]
 
@@ -37,18 +35,18 @@ model User {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String? @db.Text
-  access_token       String? @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String? @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -100,17 +98,90 @@ model Post {
 }
 
 model Category {
-  id        String    @id @default(cuid())
-  name      String
-  slug      String    @unique // Slug สำหรับ URL ที่สวยงาม (e.g., /category/tech)
+  id    String  @id @default(cuid())
+  name  String
+  slug  String  @unique // Slug สำหรับ URL ที่สวยงาม (e.g., /category/tech)
   
-  posts     Post[]    // หนึ่ง Category มีได้หลาย Post
+  posts Post[]  // หนึ่ง Category มีได้หลาย Post
 }
 
 model Tag {
-  id        String    @id @default(cuid())
-  name      String
-  slug      String    @unique // Slug สำหรับ URL ที่สวยงาม (e.g., /tag/nextjs)
+  id    String  @id @default(cuid())
+  name  String
+  slug  String  @unique // Slug สำหรับ URL ที่สวยงาม (e.g., /tag/nextjs)
 
-  posts     Post[]    // หนึ่ง Tag มีได้หลาย Post (Many-to-Many)
+  posts Post[]  // หนึ่ง Tag มีได้หลาย Post (Many-to-Many)
+}
+
+// ----------------------------------------------
+// 3. ส่วนของ E-commerce (สินค้า)
+// ----------------------------------------------
+
+// หมวดหมู่สินค้า (Streetwear, Sportswear, Luxury)
+model ProductCategory {
+  id          String    @id @default(cuid())
+  name        String    // เช่น "Streetwear", "Sportswear", "Luxury"
+  slug        String    @unique // Slug สำหรับ URL (e.g., /category/streetwear)
+  description String?   @db.Text
+  imageUrl    String?   // รูปภาพหมวดหมู่
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  products    Product[]
+}
+
+// แบรนด์สินค้า (Nike, Adidas, Supreme, etc.)
+model Brand {
+  id          String    @id @default(cuid())
+  name        String    // เช่น "Nike", "Adidas", "Supreme"
+  slug        String    @unique
+  description String?   @db.Text
+  logoUrl     String?   // โลโก้แบรนด์
+  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  products    Product[]
+}
+
+// สินค้า
+model Product {
+  id              String    @id @default(cuid())
+  name            String    // ชื่อสินค้า เช่น "Nike Air Max 90"
+  slug            String    @unique // Slug สำหรับ URL (e.g., /product/nike-air-max-90)
+  description     String?   @db.Text
+  price           Decimal   @db.Decimal(10, 2) // ราคา
+  compareAtPrice  Decimal?  @db.Decimal(10, 2) // ราคาเปรียบเทียบ (ก่อนลดราคา)
+  sku             String?   @unique // Stock Keeping Unit
+  
+  // รูปภาพ
+  imageUrl        String    // รูปภาพหลัก
+  images          String?   @db.Text // JSON array ของรูปภาพเพิ่มเติม
+  
+  // สต็อก
+  stock           Int       @default(0)
+  inStock         Boolean   @default(true)
+  
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  
+  // สถานะ
+  featured        Boolean   @default(false) // สินค้าแนะนำ
+  published       Boolean   @default(true)
+  
+  // ความสัมพันธ์
+  categoryId      String
+  category        ProductCategory @relation(fields: [categoryId], references: [id])
+  
+  brandId         String
+  brand           Brand     @relation(fields: [brandId], references: [id])
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([featured])
 }

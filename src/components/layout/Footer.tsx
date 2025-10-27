@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import { FacebookIcon, InstagramIcon, XIcon, LineIcon } from "@/lib/icons";
 
-// TODO: [Copilot] เพิ่มลิงก์ที่ถูกต้องสำหรับ Footer
 export default function Footer() {
   return (
     <footer className="bg-brand-light py-12">
@@ -12,8 +12,44 @@ export default function Footer() {
           <p className="mt-2 text-sm text-brand-text">
             เว็บขายเสื้อแบรนด์เนมแท้ที่เชื่อถือได้ รับประกันคุณภาพสินค้าทุกชิ้น
           </p>
-          {/* TODO: [Copilot] เพิ่มไอคอนและลิงก์ Social Media */}
-          <div className="mt-4 flex space-x-4">{/* (Icons here) */}</div>
+          <div className="mt-4 flex space-x-4">
+            <Link
+              href="https://www.facebook.com/sertae"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-brand-text transition-colors hover:text-brand-primary"
+            >
+              <FacebookIcon className="h-6 w-6" />
+            </Link>
+            <Link
+              href="https://www.instagram.com/sertae"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-brand-text transition-colors hover:text-brand-primary"
+            >
+              <InstagramIcon className="h-6 w-6" />
+            </Link>
+            <Link
+              href="https://x.com/sertae"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="text-brand-text transition-colors hover:text-brand-primary"
+            >
+              <XIcon className="h-6 w-6" />
+            </Link>
+            <Link
+              href="https://line.me/ti/p/@sertae"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LINE"
+              className="text-brand-text transition-colors hover:text-brand-primary"
+            >
+              <LineIcon className="h-6 w-6" />
+            </Link>
+          </div>
         </div>
 
         {/* Column 2: Links */}

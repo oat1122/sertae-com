@@ -2,14 +2,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #333333;
+  --foreground: #231f20; /* สีดำ/น้ำตาลเข้ม จากรูปภาพ */
 
-  /* Brand Colors */
-  --brand-lightest: #e3fdfd;
-  --brand-light: #cbf1f5;
-  --brand-mid: #a6e3e9;
-  --brand-primary: #71c9ce;
-  --brand-text: #333333;
+  /* Brand Colors (ธีมใหม่ ส้ม-เหลือง) */
+  --brand-lightest: #fffdf8; /* สีครีมอ่อนๆ (สำหรับ Hero Section) */
+  --brand-light: #fffbeb; /* สีครีม/เหลืองอ่อน (สำหรับ TrustBar, Footer) */
+  --brand-mid: #fde30b; /* สีเหลืองสดจากรูป (สำหรับ FinalCTA) */
+  --brand-primary: #f7941d; /* สีส้มสดจากรูป (สำหรับปุ่ม, หัวข้อ, ลิงก์) */
+  --brand-text: #231f20; /* สีดำ/น้ำตาลเข้ม (สำหรับตัวอักษร) */
 }
 
 @theme inline {
