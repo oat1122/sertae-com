@@ -2,8 +2,7 @@ import type { IConfig, ISitemapField } from "next-sitemap";
 
 /** @type {import('next-sitemap').IConfig} */
 const config: IConfig = {
-  // ❗️ สำคัญ: ใส่โดเมนจริงของคุณ
-  siteUrl: "https://เสื้อแท้.com",
+  siteUrl: "https://xn--o3c1bj3b4bj8cd.com/",
 
   generateRobotsTxt: true, // สร้างไฟล์ robots.txt
 

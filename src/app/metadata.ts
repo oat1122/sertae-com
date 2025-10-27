@@ -2,6 +2,7 @@
 
 // TODO: [Copilot] ตรวจสอบและปรับปรุง Keywords และ Title ตามกลยุทธ์ SEO ล่าสุด
 export const metadata: Metadata = {
+  metadataBase: new URL("https://xn--o3c1bj3b4bj8cd.com/"),
   title: {
     default: "เสื้อแท้.com | เว็บขายเสื้อแบรนด์เนมแท้ รับประกันคุณภาพ",
     template: "%s | เสื้อแท้.com",
